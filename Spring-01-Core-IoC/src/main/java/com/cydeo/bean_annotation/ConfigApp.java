@@ -12,6 +12,7 @@ public class ConfigApp {
         return new FullTimeMentor();
     }
 
+    // if there are multiple beans with the same object, we can add an argument to @Bean annotation
     //@Bean(name = "p1")
     @Bean
     @Primary
