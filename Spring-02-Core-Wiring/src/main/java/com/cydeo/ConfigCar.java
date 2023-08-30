@@ -14,15 +14,17 @@ public class ConfigCar {
     }
 
     // Direct wiring
+    // by passing an object to the setter of another object
 //    @Bean
 //    Person person(){
 //        Person p = new Person();
 //        p.setName("Mike");
-//        p.setCar(car()); // wiring. No the person object has a car
+//        p.setCar(car()); // wiring. Now the person object has a car
 //        return p;
 //    }
 
     // Autowiring
+    // passing an object as parameter to the method and then passing it to the setter of another object
     @Bean
     Person person(Car car){
         Person p = new Person();
