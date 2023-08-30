@@ -20,14 +20,14 @@ public class CydeoApp {
 
         // Proofing that spring is using Singleton
         // Spring is using the default scope Singleton
-        CommentService cs1 = container.getBean(CommentService.class);
-        CommentService cs2 = container.getBean(CommentService.class);
-
-        System.out.println(cs1);
-        System.out.println(cs2);
+//        CommentService cs1 = container.getBean(CommentService.class);
+//        CommentService cs2 = container.getBean(CommentService.class);
+//
+//        System.out.println(cs1);
+//        System.out.println(cs2);
 
         // if this line prints true, It is using Singleton else is using prototype
-        System.out.println(cs1 == cs2);
+        //System.out.println(cs1 == cs2);
 
 
         // if we want different objects we need to use prototype scope but we need to manage it by adding @Scope at class level

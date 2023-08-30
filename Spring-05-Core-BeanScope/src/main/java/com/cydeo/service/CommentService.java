@@ -6,12 +6,14 @@ import com.cydeo.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+//@Lazy
 //@Scope("prototype") // Hey spring, if someone wants an object from this class please create a another object from this class
-@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+//@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class CommentService {
     private final CommentRepository commentRepository;
     private final CommentNotificationProxy commentNotificationProxy;
@@ -21,6 +23,7 @@ public class CommentService {
     public CommentService(CommentRepository commentRepository,@Qualifier("PUSH") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
+        System.out.println("Hello");
     }
 
     public void publishComment(Comment comment){
