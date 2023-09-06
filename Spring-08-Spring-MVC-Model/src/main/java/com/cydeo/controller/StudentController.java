@@ -1,6 +1,7 @@
 package com.cydeo.controller;
 
 import com.cydeo.model.Student;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@org.springframework.stereotype.Controller
+@Controller
 public class StudentController {
 
 
