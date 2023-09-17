@@ -1,0 +1,44 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<head>Title</head>
+
+<body>
+<h2>Welcome new student</h2>
+
+<!--Thymeleaf expressions-->
+
+<!--Displaying value-->
+<h2 th:text="${students.get(0).firstName}"/>
+<h2 th:text="${students.get(0).lastName}"/>
+
+<!--Concatenation-->
+<h2 th:text="${'First Name: ' + students.get(1).firstName}"></h2>
+<h2 th:text="'Last Name: ' + ${students.get(1).lastName}"></h2>
+
+<!--Links-->
+<a th:href="@{https://cydeo.com}">Cydeo Home Page</a>
+<br> <br>
+<a th:href="@{/student/welcome}">Welcome page</a>
+<br> <br>
+<!--Adding Parameter to Link-->
+<a th:href="@{/student/welcome(id=3)}">Link with Parameter</a>
+
+<br> <br>
+<!--Dynamic parameter-->
+<a th:href="@{/student/welcome(id=${students.get(0).firstName})}">Dynamic Link with Parameter</a>
+
+<!--iteration-->
+<h2>Students first name</h2>
+<ul>
+    <li th:each="student : ${students}" th:text="${student.firstName}">names</li>
+</ul>
+
+<div th:replace="/fragments/index::main-menu"></div>
+<br> <br>
+<div th:replace="/fragments/index::footer-menu"></div>
+
+
+</body>
+
+</html>

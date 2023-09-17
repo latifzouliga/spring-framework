@@ -20,6 +20,7 @@ public class CarController {
         return "car/car-info";
     }
 
+    //@RequestParam(defaultValue = "Tesla",required = false)
     @RequestMapping("/info2") // http://localhost:8099/car/info?make=Honda
     public String carInfo2(@RequestParam(defaultValue = "Tesla") String make, Model model){
 
