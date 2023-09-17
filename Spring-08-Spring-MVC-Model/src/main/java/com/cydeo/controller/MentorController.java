@@ -26,15 +26,15 @@ public class MentorController {
             add(new Mentor("Amy", "Bryan", 35, Gender.FEMALE));
         }};
 
-        //model.addAttribute("mentors",mentors);
+        model.addAttribute("mentorss",mentors);
 
-        model.addAttribute("firstName", "First Name");
-        model.addAttribute("lastName", "Last Name");
-        model.addAttribute("age", "Age");
-        model.addAttribute("gender", "Gender");
-
-        model.addAttribute("mentor1", mentors.get(0));
-        model.addAttribute("mentor2", mentors.get(1));
-        model.addAttribute("mentor3", mentors.get(2));
+//        model.addAttribute("firstName", "First Name");
+//        model.addAttribute("lastName", "Last Name");
+//        model.addAttribute("age", "Age");
+//        model.addAttribute("gender", "Gender");
+//
+//        model.addAttribute("mentor1", mentors.get(0));
+//        model.addAttribute("mentor2", mentors.get(1));
+//        model.addAttribute("mentor3", mentors.get(2));
     }
 }

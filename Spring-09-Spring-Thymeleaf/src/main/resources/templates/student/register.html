@@ -1,7 +1,10 @@
 <!Doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
-<head>Title</head>
+<head>
+<!--    bringing data from external source (messages.properties)-->
+    <title th:text="#{index.page.title}">Title</title>
+</head>
 
 <body>
 <h2>Welcome new student</h2>
@@ -34,9 +37,19 @@
     <li th:each="student : ${students}" th:text="${student.firstName}">names</li>
 </ul>
 
+<!--fragments-->
 <div th:replace="/fragments/index::main-menu"></div>
 <br> <br>
 <div th:replace="/fragments/index::footer-menu"></div>
+
+<!--conditional logic-->
+<div th:text="${students.get(0).age > 25 ? 'Eligible': 'Not Eligible'}"></div>
+
+<div>
+<!--    if the first condition is true it will be executed, otherwise the second condition will be executed-->
+    <span th:if="${students.get(0).getState() == 'Arizona'}">Arizona</span>
+    <span th:unless="${students.get(0).getState() == 'Arizona'}">Not Arizona</span>
+</div>
 
 
 </body>

@@ -5,34 +5,33 @@
 
     <body>
         <table>
-
             <thead>
-                <tr>
-                    <td th:text="${firstName}"></td>
-                    <td th:text="${lastName}"></td>
-                    <td th:text="${age}"></td>
-                    <td th:text="${gender}"></td>
+                <tr  >
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td th:text="${mentor1.firstname}"></td>
-                    <td th:text="${mentor1.lastname}"></td>
-                    <td th:text="${mentor1.age}"></td>
-                    <td th:text="${mentor1.gender}"></td>
+<!--                <tr">-->
+<!--                    <td th:text="${mentor.firstname}"></td>-->
+<!--                    <td th:text="${mentor.lastname}"></td>-->
+<!--                    <td th:text="${mentor.age}"></td>-->
+<!--                    <td th:text="${mentor.gender}"></td>-->
+<!--                </tr>-->
+                <tr th:each="mentor : ${mentorss}">
+                    <td th:text="${mentor.firstname}"></td>
+                    <td th:text="${mentor.lastname}"></td>
+                    <td th:text="${mentor.age}"></td>
+                    <td th:text="${mentor.gender}"></td>
                 </tr>
-                <tr>
-                    <td th:text="${mentor2.firstname}"></td>
-                    <td th:text="${mentor2.lastname}"></td>
-                    <td th:text="${mentor2.age}"></td>
-                    <td th:text="${mentor2.gender}"></td>
-                </tr>
-                <tr>
-                    <td th:text="${mentor3.firstname}"></td>
-                    <td th:text="${mentor3.lastname}"></td>
-                    <td th:text="${mentor3.age}"></td>
-                    <td th:text="${mentor3.gender}"></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td th:text="${mentor3.firstname}"></td>-->
+<!--                    <td th:text="${mentor3.lastname}"></td>-->
+<!--                    <td th:text="${mentor3.age}"></td>-->
+<!--                    <td th:text="${mentor3.gender}"></td>-->
+<!--                </tr>-->
             </tbody>
         </table>
 
