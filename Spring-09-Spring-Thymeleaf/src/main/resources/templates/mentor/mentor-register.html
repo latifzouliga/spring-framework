@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Registration</title>
+</head>
+<body>
+
+<div align="center">
+    <!--@GetMapping("register")
+        public String showForm(Model model){
+            model.addAttribute("mentor", new Mentor());
+            List<String> batchlist = Arrays.asList("JD1", "JD2", "EU1", "EU2", "B18", "B28");
+            model.addAttribute("batchList",batchlist);
+            return "/mentor/mentor-register";
+        }-->
+    <!--    whenever register button is clicked, navigate to th:action and look for mentor/confirm (which is a post method in controller)-->
+    <form th:action="@{/mentor/confirm}" method="post" th:object="${mentor}">
+        <label for="firstname"> First Name</label>
+        <input type="text" id="firstname" placeholder="enter first name" th:field="*{firstName}">
+        <br>
+        <label for="lastname"> First Name</label>
+        <input type="text" id="lastname" placeholder="enter last name" th:field="*{lastName}">
+        <br>
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="enter email" th:field="*{email}">
+        <br>
+
+        <label>Gender
+            <input type="radio" value="Male" th:field="*{gender}">Male
+            <input type="radio" value="Female" th:field="*{gender}">Female
+        </label>
+        <br>
+
+        <label>Graduated
+            <input type="checkbox" th:field="*{isGraduated}">
+        </label>
+        <br>
+
+        <label>Batch Number
+            <select th:field="*{batch}">
+                <!--             iterate the list         batchList           each element         show each element in dropdown-->
+                <option th:each="thebatch : ${batchList}" th:value="${thebatch}" th:text="${thebatch}"></option>
+            </select>
+        </label>
+        <br>
+
+        <label>Company
+            <textarea th:field="*{company}"></textarea>
+        </label>
+        <br>
+        <button type="submit">Resister</button>
+
+    </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>
