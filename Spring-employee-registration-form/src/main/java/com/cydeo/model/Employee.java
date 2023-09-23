@@ -19,8 +19,9 @@ public class Employee {
 //    @NotBlank // does not accept black and empty string
 
     @NotBlank(message = "this error message will show only in console")
-    @Size(min = 2, max = 12)
+    @Size(max = 12, min = 2)
     private String firstName;
+
     private String lastName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
