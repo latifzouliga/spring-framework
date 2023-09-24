@@ -1,7 +1,8 @@
 package com.cydeo.controller;
 
-import com.cydeo.employeeregistrationproject.bootstrap.DataGenerator;
-import com.cydeo.employeeregistrationproject.model.Employee;
+
+import com.cydeo.bootstrap.DataGenerator;
+import com.cydeo.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,7 +41,7 @@ public class EmployeeController {
 
         model.addAttribute("employees", DataGenerator.readAllEmployees());
 
-        return "employee/employee-list";
+        return "employee/employee-create";
     }
 
 
