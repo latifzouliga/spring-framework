@@ -44,7 +44,6 @@ public class EmployeeController {
 
     }
     //    All validation we added for the fields in the Employee class will not work if we don't add @Valid annotation to PostMapping method
-
     //    BindingResult interface stops the @PostingMapping from execution if any of the validation did not pass
     //    If we don't use BindingResult the PostMapping method will be executed and the application will crash
     //    BindingResult needs to be placed right next Employee object parameter otherwise bindingResult will not work
