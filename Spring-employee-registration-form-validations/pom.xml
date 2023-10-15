@@ -9,10 +9,10 @@
     <relativePath/> <!-- lookup parent from repository -->
 </parent>
 <groupId>com.cydeo</groupId>
-<artifactId>Spring-07-Spring-MVC-Controller</artifactId>
+<artifactId>Spring-employee-registration-form-validations</artifactId>
 <version>0.0.1-SNAPSHOT</version>
 <name>Spring-07-Spring-MVC-Controller</name>
-<description>Spring-07-Spring-MVC-Controller</description>
+<description>Spring-employee-registration-form-validations</description>
 <properties>
     <java.version>11</java.version>
 </properties>
