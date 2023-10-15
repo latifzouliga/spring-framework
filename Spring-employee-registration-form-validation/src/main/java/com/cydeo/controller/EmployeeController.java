@@ -23,7 +23,7 @@ public class EmployeeController {
         model.addAttribute("employee", new Employee());
         model.addAttribute("states", DataGenerator.getAllStates());
 
-        return "employee/employee-create";
+        return "/employee/employee-create";
 
     }
 
@@ -34,14 +34,14 @@ public class EmployeeController {
 
             model.addAttribute("states", DataGenerator.getAllStates());
 
-            return "employee/employee-create";
+            return "/employee/employee-create";
         }
 
         DataGenerator.saveEmployee(employee);
 
         model.addAttribute("employees", DataGenerator.readAllEmployees());
 
-        return "employee/employee-create";
+        return "/employee/employee-create";
     }
 
 
