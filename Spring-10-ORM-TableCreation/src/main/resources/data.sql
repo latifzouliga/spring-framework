@@ -1,10 +1,10 @@
--- INSERT INTO EMPLOYEE(id, firstName, lastName)
--- VALUES (1, 'Mike Smith');
+INSERT INTO EMPLOYEE(first_name, last_name,job_title)
+VALUES ( 'Mike','Smith','Java Dev');
 
 
-INSERT INTO Student(id,first_name, last_name)
-VALUES (1,'Mike', 'Smith');
-INSERT INTO Student(id,first_name, last_name)
-VALUES (2,'Latif', 'Zouliga');
-INSERT INTO Student(id,first_name, last_name)
-VALUES (3,'Kamal', 'Nori');
+INSERT INTO Student(first_name, last_name,email)
+VALUES ('Mike', 'Smith','mike@cydeo.com');
+INSERT INTO Student(first_name, last_name,email)
+VALUES ('Latif', 'Zouliga','zouliga@yahoo.com');
+INSERT INTO Student(first_name, last_name,email)
+VALUES ('Kamal', 'Nori','kamal@gmail.com');
