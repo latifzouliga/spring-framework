@@ -19,7 +19,7 @@ public class Student {
     private String lastName;
     private String email;
 
-    @Transient
+    @Transient    // this field will not persist in database
     private String city;
     @Column(columnDefinition = "Date") // gives datatype as Date
     private LocalDate birthdate;
