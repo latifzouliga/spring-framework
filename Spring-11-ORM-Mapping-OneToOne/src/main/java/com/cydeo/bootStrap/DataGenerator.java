@@ -2,8 +2,8 @@ package com.cydeo.bootStrap;
 
 import com.cydeo.entity.Department;
 import com.cydeo.entity.Employee;
+import com.cydeo.entity.Region;
 import com.cydeo.enums.Gender;
-import com.cydeo.repository.DepartmentRepository;
 import com.cydeo.repository.EmployeeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -17,17 +17,13 @@ import java.util.List;
 public class DataGenerator implements CommandLineRunner {
 
     private final EmployeeRepository employeeRepository;
-    private final DepartmentRepository departmentRepository;
 
-    public DataGenerator(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
+    public DataGenerator(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
-        this.departmentRepository = departmentRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-
-        List<Employee> employeeList = new ArrayList<>();
 
 
         Employee e1 = new Employee("BerrieLatif", "Manueau", "bmanueau0@dion.ne.jp", LocalDate.of(2006, 04, 20), 154864, Gender.F);
@@ -43,21 +39,36 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets", "Electronics");
         Department d5 = new Department("Computers", "Electronics");
 
-//        Region r1 = new Region("Southwest","United States");
-//        Region r2 = new Region("Central","United States");
-//        Region r3 = new Region("Northwest","United States");
-//        Region r4 = new Region("Quebec'","Canada");
-//        Region r5 = new Region("Central","Asia");
+        Region r1 = new Region("Southwest", "United States");
+        Region r2 = new Region("Central", "United States");
+        Region r3 = new Region("Northwest", "United States");
+        Region r4 = new Region("Quebec'", "Canada");
+        Region r5 = new Region("Central", "Asia");
 
-        employeeRepository.save(e1);
-        employeeRepository.save(e2);
-        employeeRepository.save(e3);
-        employeeRepository.save(e4);
-        employeeRepository.save(e5);
-        employeeRepository.save(e6);
+        e1.setDepartment(d1);
+        e2.setDepartment(d2);
+        e3.setDepartment(d3);
+        e4.setDepartment(d4);
+        e5.setDepartment(d5);
+        e6.setDepartment(d3);
 
-        List<Department> departmentList = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5));
-        departmentRepository.saveAll(departmentList);
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+        e5.setRegion(r5);
+        e6.setRegion(r2);
+
+
+        List<Employee> employeeList = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5, e6));
+        employeeRepository.saveAll(employeeList);
+
+//        List<Department> departmentList = new ArrayList<>(Arrays.asList(d1, d2, d3, d4, d5));
+        //List<Region> regionList = new ArrayList<>(Arrays.asList(r1, r2, r3, r4, r5));
+
+//        departmentRepository.saveAll(departmentList);
+        //regionRepository.saveAll(regionList);
+
 
 
     }
