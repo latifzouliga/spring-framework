@@ -17,15 +17,19 @@ public class Employee extends BaseEntity{
     private String firstName;
     private String lastName;
     private String email;
+
     @Column(columnDefinition = "date")
     private LocalDate hireDate;
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private int salary;
+
     //@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})                     // creating join
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id")
     private Department department;  // creating one more column called department_id in employee table
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private Region region;
