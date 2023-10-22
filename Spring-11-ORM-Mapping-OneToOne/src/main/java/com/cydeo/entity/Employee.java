@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -31,7 +30,6 @@ public class Employee extends BaseEntity{
     private Department department;  // creating one more column called department_id in employee table
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn
     private Region region;
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, int salary, Gender gender) {
         this.firstName = firstName;
