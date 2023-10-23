@@ -27,4 +27,5 @@ public class Payment extends BaseEntity{
         this.createDate = createDate;
         this.status = status;
     }
+
 }

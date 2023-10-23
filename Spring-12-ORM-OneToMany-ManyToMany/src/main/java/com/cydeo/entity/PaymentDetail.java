@@ -17,7 +17,7 @@ public class PaymentDetail extends BaseEntity{
     @Column(columnDefinition = "date")
     private LocalDate payoutDate;
     @OneToOne(mappedBy = "paymentDetail",cascade = CascadeType.ALL)
-    private Payment payment;
+    private Payment payment; // will not show in table // bi-directional relationship
 
     public PaymentDetail(BigDecimal commissionAmount, BigDecimal merchantPaymentAmount, LocalDate payoutDate) {
         this.commissionAmount = commissionAmount;
