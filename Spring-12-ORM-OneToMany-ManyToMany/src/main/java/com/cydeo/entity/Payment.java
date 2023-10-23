@@ -22,6 +22,12 @@ public class Payment extends BaseEntity{
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentDetail paymentDetail; // foreignKey
 
+    @ManyToOne
+    private Merchant merchant;
+
+    @ManyToOne
+    private Customer customer;
+
     public Payment(BigDecimal amount, LocalDate createDate, Status status) {
         this.amount = amount;
         this.createDate = createDate;
