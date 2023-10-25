@@ -33,4 +33,7 @@ public class Movie extends BaseEntity{
     )
     private List<Genre> genreList;
 
+    //@OneToMany(mappedBy = "movie")
+    //private List<MovieCinema> movieCinemaList;
+
 }
