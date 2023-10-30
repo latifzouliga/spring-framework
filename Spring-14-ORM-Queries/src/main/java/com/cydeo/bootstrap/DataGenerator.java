@@ -64,6 +64,11 @@ public class DataGenerator implements CommandLineRunner {
         Employee employeesByEmail = employeeRepository.findByEmail("dtrail8@tamu.edu");
         System.out.println(employeesByEmail);
 
+        System.out.println("\n=================== Employee JPQL =======================");
+
+        System.out.println(employeeRepository.getEmployeeDetail());
+        System.out.println(employeeRepository.getEmployeeSalary());
+
 
     }
 

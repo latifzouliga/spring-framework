@@ -8,8 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-@Entity@
-NoArgsConstructor
+@Entity
+@NoArgsConstructor
 public class Cinema extends BaseEntity{
     private String name;
     private String sponsoredName;
