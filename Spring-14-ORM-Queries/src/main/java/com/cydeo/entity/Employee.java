@@ -22,10 +22,10 @@ public class Employee extends BaseEntity{
     private LocalDate hireDate;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private BigDecimal salary;
-    @ManyToOne(fetch = FetchType.LAZY)
+    private Integer salary;
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "department")
     private Department department;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Region region;
 }
