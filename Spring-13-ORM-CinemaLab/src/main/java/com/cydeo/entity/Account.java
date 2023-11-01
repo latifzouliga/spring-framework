@@ -1,6 +1,6 @@
 package com.cydeo.entity;
 
-import com.cydeo.enums.Role;
+import com.cydeo.enums.userRole;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -18,7 +18,7 @@ public class Account extends BaseEntity{
     private String city;
     private String postalCode;
     @Enumerated(EnumType.STRING)
-    private Role role = Role.USER;
+    private userRole userRole = userRole.USER;
     @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
     @JoinColumn(name = "userAccountId")
     private User user;
