@@ -3,6 +3,7 @@ package com.cydeo.entity;
 
 import com.cydeo.enums.MovieState;
 import com.cydeo.enums.MovieType;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Data
 public class Movie extends BaseEntity{
     private String name;
     @Column(columnDefinition = "date")

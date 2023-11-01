@@ -1,5 +1,6 @@
 package com.cydeo.entity;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Data
 public class Cinema extends BaseEntity{
     private String name;
     private String sponsoredName;

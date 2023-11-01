@@ -1,5 +1,6 @@
 package com.cydeo.entity;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
+@Data
 public class Ticket extends BaseEntity {
     @Column(columnDefinition = "timestamp")
     private LocalDateTime dateTime;
