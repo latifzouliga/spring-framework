@@ -8,10 +8,13 @@ import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @Data
-public class Genre extends BaseEntity{
+@NoArgsConstructor
+public class Genre extends BaseEntity {
+
     private String name;
-    @ManyToMany(mappedBy = "genreList") // giving ownership to movie
+
+    @ManyToMany(mappedBy = "genreList")
     private List<Movie> movieList;
+
 }

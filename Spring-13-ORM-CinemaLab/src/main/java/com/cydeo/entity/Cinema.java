@@ -10,12 +10,13 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
 public class Cinema extends BaseEntity{
+
     private String name;
     private String sponsoredName;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Location location;
-
 }

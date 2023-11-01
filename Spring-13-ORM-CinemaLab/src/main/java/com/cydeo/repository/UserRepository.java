@@ -3,11 +3,15 @@ package com.cydeo.repository;
 import com.cydeo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface UserRepository extends JpaRepository<User, Long> {
 
     // ------------------- DERIVED QUERIES ------------------- //
 
     //Write a derived query to read a user with an email?
+    User readByEmail(String email);
+    List<User> readUserByEmail(String email);
 
     //Write a derived query to read a user with an username?
 

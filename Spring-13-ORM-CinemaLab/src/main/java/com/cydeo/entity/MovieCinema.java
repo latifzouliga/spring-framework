@@ -10,14 +10,22 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
 public class MovieCinema extends BaseEntity{
-    @Column(columnDefinition = "timestamp")
+
+    @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
-    @ManyToOne(fetch =FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Movie movie;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Cinema cinema;
+
+
+
+
+
 }
+

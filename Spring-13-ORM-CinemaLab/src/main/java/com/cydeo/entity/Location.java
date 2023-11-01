@@ -8,8 +8,8 @@ import javax.persistence.Transient;
 import java.math.BigDecimal;
 
 @Entity
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
 public class Location extends BaseEntity{
 
     private String name;
@@ -20,5 +20,7 @@ public class Location extends BaseEntity{
     private String state;
     private String city;
     private String address;
+
+
 
 }

@@ -14,28 +14,26 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Data
-public class Movie extends BaseEntity{
+public class Movie extends  BaseEntity{
+
     private String name;
-    @Column(columnDefinition = "date")
+    @Column(columnDefinition = "DATE")
     private LocalDate releaseDate;
     private Integer duration;
-    private BigDecimal price;
     @Column(columnDefinition = "text")
     private String summary;
     @Enumerated(EnumType.STRING)
     private MovieType type;
     @Enumerated(EnumType.STRING)
     private MovieState state;
+    private BigDecimal price;
+
 
     @ManyToMany
-    @JoinTable(
-            name = "movieGenreRel",
-            joinColumns = @JoinColumn(name = "movieId"),
-            inverseJoinColumns = @JoinColumn(name = "genreId")
-    )
+    @JoinTable(name = "movie_genre_rel",
+            joinColumns = @JoinColumn(name="movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genreList;
 
-    //@OneToMany(mappedBy = "movie")
-    //private List<MovieCinema> movieCinemaList;
 
 }
