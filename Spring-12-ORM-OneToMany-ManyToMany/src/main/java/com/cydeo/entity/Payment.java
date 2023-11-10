@@ -3,6 +3,7 @@ package com.cydeo.entity;
 import com.cydeo.enums.Status;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -33,5 +34,6 @@ public class Payment extends BaseEntity{
         this.createDate = createDate;
         this.status = status;
     }
+
 
 }

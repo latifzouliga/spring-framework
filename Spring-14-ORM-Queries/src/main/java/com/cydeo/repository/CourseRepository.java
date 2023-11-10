@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
+import java.util.stream.Stream;
 
 
 @Repository
@@ -30,7 +31,7 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
     // find all courses by category and return stream
 
-    //Stream<Course> streamByCategory(String category);
+    Stream<Course> streamByCategory(String category);
 
     @Query("SELECT c FROM Course c where c.category = :category AND c.rating > :rating")
     List<Course> findAllByCategoryAndRatingGreaterThan(@Param("category") String category, @Param("rating") int rating);

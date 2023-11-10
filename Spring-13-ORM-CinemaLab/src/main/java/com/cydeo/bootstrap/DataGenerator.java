@@ -1,5 +1,7 @@
 package com.cydeo.bootstrap;
 
+import com.cydeo.entity.Account;
+import com.cydeo.enums.UserRole;
 import com.cydeo.repository.AccountRepository;
 import com.cydeo.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -18,7 +20,15 @@ public class DataGenerator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println(userRepository.readByEmail("bernard@email.com"));
+        System.out.println("\n******************************************************");
+        System.out.println("******************************************************");
+        System.out.println("******************************************************\n");
+
+       accountRepository.getAccountContainsJPQL("Cannon").forEach(System.out::println);
+
+        System.out.println("\n******************************************************");
+        System.out.println("******************************************************");
+        System.out.println("******************************************************\n");
 
 
     }

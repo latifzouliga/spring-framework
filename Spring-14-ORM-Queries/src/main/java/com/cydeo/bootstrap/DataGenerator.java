@@ -10,12 +10,13 @@ import com.cydeo.repository.RegionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
+@Transactional
 public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
@@ -95,7 +96,8 @@ public class DataGenerator implements CommandLineRunner {
 
         courseRepository.findByNameStartingWith("Scalable").forEach(System.out::println);
 
-        //courseRepository.streamByCategory("Spring").forEach(System.out::println);
+        System.out.println("\n=================== Stream =======================");
+        courseRepository.streamByCategory("Spring").forEach(System.out::println);
 
         System.out.println("\n=================== JPQL - NotEqual =======================");
         //System.out.println(employeeRepository.getEmployeeSalaryNotEqual(154864));
