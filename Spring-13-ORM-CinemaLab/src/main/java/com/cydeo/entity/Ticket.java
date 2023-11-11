@@ -20,9 +20,9 @@ public class Ticket extends BaseEntity {
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private MovieCinema movieCinema;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private User userAccount;
 }
