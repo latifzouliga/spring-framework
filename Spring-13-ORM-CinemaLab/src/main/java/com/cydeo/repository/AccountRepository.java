@@ -34,9 +34,9 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> getAccountByAgeLessThanEqualSQL(Integer age);
 
     //Write a derived query to list all accounts with a specific role
-    List<Account> getAccountByRole(Enum<UserRole> role);
+    List<Account> getAccountByRole(UserRole role);
     @Query("SELECT a FROM Account a WHERE a.role = :role")
-    List<Account> getAccountByRoleJPQL(@Param("role") Enum<UserRole> role);
+    List<Account> getAccountByRoleJPQL(@Param("role") UserRole role);
 
 
     //Write a derived query to list all accounts between a range of ages
@@ -47,7 +47,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     @Query(value = "SELECT * FROM account_details WHERE age BETWEEN :age1 AND :age2",nativeQuery = true)
     List<Account> accountsBetweenAges(@Param("age1") Integer age1, @Param("age2") Integer age2);
 
-//TODO: ========================================================================================
+
 
     //Write a derived query to list all accounts where the beginning of the address contains the keyword
     List<Account> getAccountByAddressStartsWith(String pattern);
@@ -94,7 +94,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     //Write a native query to read all accounts with an age lower than a specific value
 
-    @Query(value = "SELECT * FROM account_details where age <= ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM account_details where age < ?1",nativeQuery = true)
     List<Account> getAllAccountsLessThan(Integer age);
     @Query("SELECT a FROM Account a WHERE a.age < :age")
     List<Account> getAllAccountsLessThanJPQL(@Param("age") Integer age);
@@ -104,24 +104,24 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state city
     @Query(value = "SELECT * FROM account_details WHERE " +
-            "name       like concat('%',?1,'%') " +
-            "or address like concat('%',?1,'%') " +
-            "or country like concat('%',?1,'%') " +
-            "or state   like concat('%',?1,'%')",nativeQuery = true)
-    List<Account> getAccountContains(String pattern);
+            "   name    LIKE '%' || :pattern || '%' " +
+            "or address LIKE '%' || :pattern || '%' " +
+            "or country LIKE '%' || :pattern || '%' " +
+            "or state   LIKE '%' || :pattern || '%'",nativeQuery = true)
+    List<Account> getAccountContains(@Param("pattern")String pattern);
 
     @Query("SELECT a FROM Account a WHERE " +
-            "a.name       LIKE '%' || :pattern || '%' " +
-            "OR a.address LIKE '%' || :pattern || '%' " +
-            "OR a.city    LIKE '%' || :pattern || '%' " +
-            "OR a.country LIKE '%' || :pattern || '%' " +
-            "OR a.state   LIKE '%' || :pattern || '%' "  )
+            "a.name       ILIKE '%' || :pattern || '%' " +
+            "OR a.address ILIKE '%' || :pattern || '%' " +
+            "OR a.city    ILIKE '%' || :pattern || '%' " +
+            "OR a.country ILIKE '%' || :pattern || '%' " +
+            "OR a.state   iLIKE '%' || :pattern || '%' "  )
     List<Account> getAccountContainsJPQL(@Param("pattern") String pattern);
 
 
     //Write a native query to read all accounts with an age greater than a specific value
 
-    @Query(value = "SELECT * FROM account_details WHERE age >= :age",nativeQuery = true)
+    @Query(value = "SELECT * FROM account_details WHERE age > :age",nativeQuery = true)
     List<Account> getAccountsAgeGreaterThan(@Param("age") Integer age);
 
 

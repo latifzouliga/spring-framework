@@ -4,7 +4,9 @@ package com.cydeo.entity;
 import com.cydeo.enums.MovieState;
 import com.cydeo.enums.MovieType;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +15,8 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Movie extends  BaseEntity{
 
     private String name;
@@ -29,7 +32,7 @@ public class Movie extends  BaseEntity{
     private BigDecimal price;
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "movie_genre_rel",
             joinColumns = @JoinColumn(name="movie_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id"))

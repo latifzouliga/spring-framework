@@ -2,10 +2,7 @@ package com.cydeo.bootstrap;
 
 import com.cydeo.entity.Account;
 import com.cydeo.enums.UserRole;
-import com.cydeo.repository.AccountRepository;
-import com.cydeo.repository.CinemaRepository;
-import com.cydeo.repository.GenreRepository;
-import com.cydeo.repository.UserRepository;
+import com.cydeo.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,6 +15,7 @@ public class DataGenerator implements CommandLineRunner {
     private final UserRepository userRepository;
     private final CinemaRepository cinemaRepository;
     private final GenreRepository genreRepository;
+    private final MovieCinemaRepository movieCinemaRepository;
 
 
 
@@ -28,7 +26,7 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("******************************************************");
         System.out.println("******************************************************\n");
 
-        genreRepository.getAllGenreStartsWith("A").forEach(System.out::println);
+        System.out.println(movieCinemaRepository.findById(1L).get());
 
         System.out.println("\n******************************************************");
         System.out.println("******************************************************");

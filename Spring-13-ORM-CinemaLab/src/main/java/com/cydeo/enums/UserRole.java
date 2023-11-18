@@ -1,6 +1,11 @@
 package com.cydeo.enums;
 
 public enum UserRole {
-    ADMIN,
-    USER
+    ADMIN("Admin"),
+    USER("User");
+    private final String value;
+
+    UserRole(String value) {
+        this.value = value;
+    }
 }

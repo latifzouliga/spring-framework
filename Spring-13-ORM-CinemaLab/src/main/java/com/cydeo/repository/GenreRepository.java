@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Long> {
@@ -23,7 +24,7 @@ public interface GenreRepository extends JpaRepository<Genre, Long> {
     // ------------------- Native QUERIES ------------------- //
 
     //Write a native query that returns genres by containing name
-    Genre findGenreByNameContaining(String pattern);
+    Optional<Genre> findGenreByNameContaining(String pattern);
 
     @Query("SELECT g FROM Genre g WHERE g.name LIKE '%'||?1||'%'")
     Genre findGenreByNameContainingJPQL(String pattern);
