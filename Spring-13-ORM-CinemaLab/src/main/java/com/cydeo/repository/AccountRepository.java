@@ -102,7 +102,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> getAccountsByAgeLessThan(Integer age);
 
 
-    //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state city
+//    Write a native query to read all accounts that a specific value can be containable in the name, address, country, state city
     @Query(value = "SELECT * FROM account_details WHERE " +
             "   name    LIKE '%' || :pattern || '%' " +
             "or address LIKE '%' || :pattern || '%' " +
@@ -111,11 +111,11 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> getAccountContains(@Param("pattern")String pattern);
 
     @Query("SELECT a FROM Account a WHERE " +
-            "a.name       ILIKE '%' || :pattern || '%' " +
-            "OR a.address ILIKE '%' || :pattern || '%' " +
-            "OR a.city    ILIKE '%' || :pattern || '%' " +
-            "OR a.country ILIKE '%' || :pattern || '%' " +
-            "OR a.state   iLIKE '%' || :pattern || '%' "  )
+            "a.name       LIKE '%' || :pattern || '%' " +
+            "OR a.address LIKE '%' || :pattern || '%' " +
+            "OR a.city    LIKE '%' || :pattern || '%' " +
+            "OR a.country LIKE '%' || :pattern || '%' " +
+            "OR a.state   LIKE '%' || :pattern || '%'"  )
     List<Account> getAccountContainsJPQL(@Param("pattern") String pattern);
 
 

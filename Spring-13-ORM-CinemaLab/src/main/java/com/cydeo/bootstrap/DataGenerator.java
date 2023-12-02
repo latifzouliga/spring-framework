@@ -16,6 +16,7 @@ public class DataGenerator implements CommandLineRunner {
     private final CinemaRepository cinemaRepository;
     private final GenreRepository genreRepository;
     private final MovieCinemaRepository movieCinemaRepository;
+    private final TicketRepository ticketRepository;
 
 
 
@@ -26,7 +27,7 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("******************************************************");
         System.out.println("******************************************************\n");
 
-        System.out.println(movieCinemaRepository.findById(1L).get());
+        ticketRepository.getTicketsBySearchValue("Tenet").forEach(System.out::println);
 
         System.out.println("\n******************************************************");
         System.out.println("******************************************************");
