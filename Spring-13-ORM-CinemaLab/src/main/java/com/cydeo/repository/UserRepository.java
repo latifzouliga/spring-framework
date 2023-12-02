@@ -13,6 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     //Write a derived query to read a user with an email?
     Optional<User> readByEmail(String email);
+
     List<User> readUserByEmail(String email);
 
     //Write a derived query to read a user with an username?
@@ -31,7 +32,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     //Write a JPQL query that returns a user read by email?
 
-    @Query("SELECT u FROM User u WHERE u.email = ?1")
+    @Query("SELECT u FROM User u WHERE LOWER( u.email ) = LOWER( ?1 )")
     Optional<User> getUserByEmail(String email);
 
     //Write a JPQL query that returns a user read by username?
@@ -47,7 +48,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //Write a native query that returns all users that contain a specific name?
     @Query(value = "SELECT * FROM user_account ua " +
             "JOIN account_details ad ON ua.account_details_id = ad.id  " +
-            "WHERE ad.name LIKE ?1", nativeQuery = true)
+            "WHERE ad.name ILIKE '%'||?1||'%'", nativeQuery = true)
     Optional<User> getByName(String name);
 
     //Write a native query that returns all users?
@@ -57,11 +58,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //Write a native query that returns all users in the range of ages?
     @Query(value = "SELECT * FROM user_account ua " +
             "JOIN account_details ad ON ua.account_details_id = ad.id " +
-            "WHERE ad.age BETWEEN ?1 AND ?2",nativeQuery = true)
+            "WHERE ad.age BETWEEN ?1 AND ?2", nativeQuery = true)
     List<User> getUsersAgeBetween(Integer age1, Integer age2);
 
     //Write a native query to read a user by email?
-    @Query(value = "SELECT * FROM user_account WHERE email ILIKE ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM user_account WHERE email ILIKE ?1", nativeQuery = true)
     Optional<User> findUserByEmail(String email);
 
 }

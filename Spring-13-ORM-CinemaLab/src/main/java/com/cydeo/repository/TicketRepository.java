@@ -36,7 +36,6 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     // ------------------- Native QUERIES ------------------- //
 
-    // TODO: all these bellow queries are wrong
     //Write a native query to count the number of tickets a user bought
 
     @Query(value = "SELECT * FROM ticket ",nativeQuery = true)
