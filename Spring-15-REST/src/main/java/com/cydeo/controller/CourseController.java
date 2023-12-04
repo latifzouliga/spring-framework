@@ -9,7 +9,7 @@ import java.util.List;
 
 //@Controller
 @RestController // @Controller + @ ResponseBody
-@RequestMapping("/courses")
+@RequestMapping("/courses/api/v1")
 public class CourseController {
 
     private final CourseService courseService;
@@ -33,6 +33,26 @@ public class CourseController {
     @GetMapping("category/{name}")
     public List<CourseDTO> getCourseByCategory(@PathVariable("name") String name){
         return courseService.getCoursesByCategory(name);
+    }
+
+    @PostMapping
+    public CourseDTO createCourse(@RequestBody CourseDTO course){
+        return courseService.createCourse(course);
+    }
+
+    @PutMapping("/{id}")
+    public void updateCourse(@PathVariable("id") Long id, @RequestBody CourseDTO course){
+        courseService.updateCourse(id, course);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCourseById(@PathVariable("id") Long id){
+        courseService.deleteCourseById(id);
+    }
+
+    @DeleteMapping
+    public void deleteAll(){
+        courseService.deleteCourses();
     }
 }
 
