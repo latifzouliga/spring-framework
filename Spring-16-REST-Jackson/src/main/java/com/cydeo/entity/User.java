@@ -13,22 +13,22 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Table(name = "user_account")
-@JsonIgnoreProperties(value = "{hibernateLazyInitializer}",ignoreUnknown = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
 public class User extends BaseEntity {
 
 
     private String email;
 
 
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
 
     private String username;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_details_id")
-    @JsonManagedReference //is the forward part of reference - the one that gets serialized normally
+    @JoinColumn(name =         "account_details_id")
+    @JsonManagedReference                    //is the forward part of reference - the one that gets serialized normally (will show in json object)
     private Account account;
 
 }

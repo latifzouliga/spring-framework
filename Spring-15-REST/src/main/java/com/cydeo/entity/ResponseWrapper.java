@@ -29,6 +29,4 @@ public class ResponseWrapper {
         this.code = HttpStatus.OK.value();
     }
 
-
-
 }
