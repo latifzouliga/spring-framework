@@ -53,7 +53,7 @@ public class Consume_RestTemplate {
     public ResponseEntity<Object> consumeFromDummyApi(){
         HttpHeaders headers = new HttpHeaders();
         //headers.set("Accept","Application/json");
-        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        //headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         headers.set("app-id","6298ebfecd0551211fce37a6");
 
         // exchange(): passing some data

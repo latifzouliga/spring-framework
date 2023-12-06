@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 //@Lazy
-//@Scope("prototype") // Hey spring, if someone wants an object from this class please create a another object from this class
+//@Scope("prototype") // Hey spring, if someone wants an object from this class please create another object from this class
 //@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class CommentService {
     private final CommentRepository commentRepository;
