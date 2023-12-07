@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cydeo</groupId>
-	<artifactId>Spring-API-ConsumingApi</artifactId>
+	<artifactId>Spring-17-REST-ConsumingApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring-API-ConsumingApi</name>
 	<description>Spring-API-ConsumingApi</description>
