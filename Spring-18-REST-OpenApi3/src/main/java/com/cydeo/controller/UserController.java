@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name = "Users", description = "Users CRUD Operations")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -24,6 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
+    @Operation(summary = "Read all users")
     public List<User> readAllUsers() {
         return userRepository.findAll();
     }

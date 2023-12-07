@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-
+@Tag(name = "Cinema", description = "Cinema CRUD Operations")
 public class CinemaController {
 
     private final CinemaRepository cinemaRepository;
@@ -25,6 +25,14 @@ public class CinemaController {
     }
 
     @GetMapping("/cinemas")
+    @Operation(summary = "Read all cinemas")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",description = "Successfully retrieved users (OK)",
+                         content = {@Content(mediaType = "application/json")}),
+
+            @ApiResponse(responseCode = "400",description = "Something went wrong"),
+            @ApiResponse(responseCode = "404",description = "Not Found"),
+    })
     public List<Cinema> readAllCinemas(){
         return cinemaRepository.findAll();
     }
