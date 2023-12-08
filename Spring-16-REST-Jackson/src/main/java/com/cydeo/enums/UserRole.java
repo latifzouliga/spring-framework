@@ -1,5 +1,11 @@
 package com.cydeo.enums;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum UserRole {
-    ADMIN, USER
+
+    @JsonProperty("Admin")
+    ADMIN,
+    @JsonProperty("User")
+    USER
 }

@@ -16,6 +16,7 @@ import javax.persistence.*;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
 public class User extends BaseEntity {
 
+
 //    @JsonIgnore
     private String email;
 
