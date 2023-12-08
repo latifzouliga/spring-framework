@@ -39,25 +39,6 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @PostMapping("/users")
-    @Operation(summary = "Create a new user")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201",description = "User created successfully",
-            content = {@Content(mediaType = "application/json")}),
-            @ApiResponse(responseCode = "400",description = "Bad request",content = @Content)
 
-    })
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        Account account = accountRepository.save(user.getAccount());
-        user.setAccount(account);
-        return ResponseEntity.ok(userRepository.save(user));
-    }
-
-    @PostMapping("/accounts")
-    public ResponseEntity<Account> createAccount(@RequestBody Account account){
-
-        userRepository.save(account.getUser());
-        return ResponseEntity.ok(accountRepository.save(account));
-    }
 
 }
