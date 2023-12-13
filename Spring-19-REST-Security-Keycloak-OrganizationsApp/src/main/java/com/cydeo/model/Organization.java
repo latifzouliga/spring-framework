@@ -31,3 +31,11 @@ public class Organization {
     private String contactPhone;
 
 }
+/*
+{
+    "name": "ABC Limited",
+    "contactName": "tan",
+    "contactEmail": "tan@Email.com",
+    "contactPhone": "1231231231"
+}
+ */
