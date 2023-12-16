@@ -46,3 +46,12 @@ public class License {
     private String contactEmail;
 
 }
+
+/*
+{
+    "description": "Ubuntu License",
+    "organizationId": 1,
+    "productName": "Ubuntu Server",
+    "licenseType": "software"
+}
+ */
