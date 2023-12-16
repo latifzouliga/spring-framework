@@ -20,11 +20,9 @@ import java.util.List;
 public class UserController {
 
     private final UserRepository userRepository;
-    private final AccountRepository accountRepository;
 
-    public UserController(UserRepository userRepository, AccountRepository accountRepository) {
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.accountRepository = accountRepository;
     }
 
     @GetMapping("/users")
