@@ -1,6 +1,7 @@
 package com.cydeo.controller;
 
 import com.cydeo.dto.User;
+import com.cydeo.entity.Spartan;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,5 +65,12 @@ public class Consume_RestTemplate {
         return response;
     }
 
+    public final String url = "http://54.173.31.211:8000/api/spartans";
+
+    @GetMapping("/spartan")
+    public ResponseEntity<Spartan[]> spartan(){
+        ResponseEntity<Spartan[]> res = restTemplate.getForEntity(url,Spartan[].class);
+        return res;
+    }
 
 }
