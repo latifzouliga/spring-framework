@@ -1,9 +1,8 @@
 package com.cydeo.controller;
 
+import com.cydeo.annotation.Loggable;
 import com.cydeo.dto.CourseDTO;
 import com.cydeo.service.CourseService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,22 +13,25 @@ public class CourseController {
 
     private final CourseService courseService;
 
-    Logger logger = LoggerFactory.getLogger(CourseController.class);
+    //Logger logger = LoggerFactory.getLogger(CourseController.class);
 
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
     }
 
+    @Loggable
     @GetMapping
     public List<CourseDTO> getAllCourses() {
-        logger.info("Before -> Controller: {} - Method {}","CourseController","getCourses()");
-        List<CourseDTO> list = courseService.getCourses();
-        logger.info("After -> Controller: {} - Method {} - Output : {}","CourseController","getCourses(),",list.toString());
 
-       return courseService.getCourses();
+        //logger.info("Before -> Controller: {} - Method {}","CourseController","getCourses()");
+        List<CourseDTO> list = courseService.getCourses();
+        //logger.info("After -> Controller: {} - Method {} - Output : {}","CourseController","getCourses()",list.toString());
+
+        return list;
     }
 
 
+    @Loggable
     @GetMapping("/{id}")
     public CourseDTO getCourseById(@PathVariable("id") Long courseId) {
         return courseService.getCourseById(courseId);
@@ -37,15 +39,17 @@ public class CourseController {
 
     @GetMapping("/category/{name}")
     public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category) {
-        return courseService.getCoursesByCategory(category)       ;
+        return courseService.getCoursesByCategory(category);
     }
 
 
+    @Loggable
     @PostMapping
     public CourseDTO createCourse(@RequestBody CourseDTO course) {
         return courseService.createCourse(course);
     }
 
+    @Loggable
     @PutMapping("/{id}")
     public void updateCourse(@PathVariable("id") Long courseId, @RequestBody CourseDTO course) {
         courseService.updateCourse(courseId, course);
