@@ -15,8 +15,6 @@ import java.util.List;
 @Aspect
 @Configuration
 public class LoggingAspect {
-    // some code
-}
     Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
     //     logging all method in CourseController class
