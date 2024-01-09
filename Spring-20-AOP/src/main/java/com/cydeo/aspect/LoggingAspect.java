@@ -15,13 +15,12 @@ import java.util.List;
 @Aspect
 @Configuration
 public class LoggingAspect {
-
     Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
     //     logging all method in CourseController class
 
-    @Pointcut("execution(* com.cydeo.controller.CourseController.*(..))")
-    private void pointCut(){}
+    @Pointcut("execution(* com.cydeo.controller.CourseController.*(..))") // pointcut expression
+    private void pointCut(){} // pointcut signature
 
     @Before("pointCut()")
     public void log(){
