@@ -29,15 +29,15 @@ class UserServiceImplTest {
         userService.deleteByUserName("hello@cydeo.com");
 
         // these methods never run, we are just mocking them
-//        verify(userRepository).findAll();
-//        verify(userRepository).deleteByUserName("hello@cydeo.com");
+        verify(userRepository).findAll();
+        verify(userRepository).deleteByUserName("hello@cydeo.com");
 
 
-//        verify(userRepository,times(2)).deleteByUserName("hello@cydeo.com"); // run it 2 times
-//        verify(userRepository,atLeast(5)).deleteByUserName("hello@cydeo.com");
-//        verify(userRepository,atLeastOnce()).deleteByUserName("hello@cydeo.com");
-//        verify(userRepository,atMostOnce()).deleteByUserName("hello@cydeo.com");
-//        verify(userRepository,atMost(5)).deleteByUserName("hello@cydeo.com");
+        verify(userRepository,times(2)).deleteByUserName("hello@cydeo.com"); // run it 2 times
+        verify(userRepository,atLeast(5)).deleteByUserName("hello@cydeo.com");
+        verify(userRepository,atLeastOnce()).deleteByUserName("hello@cydeo.com");
+        verify(userRepository,atMostOnce()).deleteByUserName("hello@cydeo.com");
+        verify(userRepository,atMost(5)).deleteByUserName("hello@cydeo.com");
 
         // run methods in order
         InOrder inOrder = inOrder(userRepository);

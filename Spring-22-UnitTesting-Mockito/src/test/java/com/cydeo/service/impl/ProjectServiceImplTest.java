@@ -79,7 +79,7 @@ class ProjectServiceImplTest {
 
         // then
         verify(projectMapper).convertToEntity(projectDTO);
-        verify(projectRepository).save(project);
+        verify(projectRepository,times(1)).save(project);
 
     }
 
