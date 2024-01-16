@@ -4,6 +4,7 @@
 FROM openjdk:17-jdk
 
 # we need to run mvn clean install to generate the ./target file and then copy .jar file
+# create a /usr/app/ folder and copy my applicatio to it
 COPY ./target/Spring-24-Docker-0.0.1-SNAPSHOT.jar /usr/app/
 
 # cd to /usr/app/
